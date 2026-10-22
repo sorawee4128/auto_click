@@ -1,0 +1,20 @@
+name: build-exe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyautogui opencv-python pillow pyinstaller
+      - run: pyinstaller --onefile --name auto_click auto_click.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: auto_click
+          path: dist/auto_click.exe
