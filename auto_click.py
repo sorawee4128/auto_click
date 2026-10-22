@@ -44,7 +44,9 @@ def main():
     time.sleep(2)
     n = 0
     while True:
+        time.sleep(3)
         wait_and_click(BTN1, "ปุ่ม 1")   # รอปุ่ม 1 โผล่ -> คลิก
+        time.sleep(3)
         wait_and_click(BTN2, "ปุ่ม 2")   # รอปุ่ม 2 โผล่ -> คลิก
         n += 1
         print(f"--- รอบที่ {n} ---")
